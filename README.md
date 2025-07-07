@@ -1,81 +1,81 @@
 # Twitter MCP Server
 
-A powerful Twitter integration for AI agents that leverages the Model Context Protocol (MCP) standard, providing a comprehensive set of Twitter functionality through a clean and consistent interface.
+AIエージェント向けの強力なTwitter統合機能で、Model Context Protocol (MCP) 標準を活用し、洗練された一貫性のあるインターフェースを通じて包括的なTwitter機能を提供します。
 
-## Overview
+## 概要
 
-This server provides access to Twitter's features through MCP tools, allowing seamless integration with AI assistants and other MCP-compatible clients. It's built on top of the `agent-twitter-client` library and provides robust error handling, rate limiting, and consistent response formatting.
+このサーバーは、MCPツールを通じてTwitterの機能にアクセスできるようにし、AIアシスタントやその他のMCP互換クライアントとのシームレスな統合を実現します。`agent-twitter-client`ライブラリの上に構築されており、堅牢なエラー処理、レート制限、一貫したレスポンスフォーマットを備えています。
 
-## Features
+## 機能
 
-### Basic Reading
-- Get tweets from users with media support
-- Fetch user profiles with detailed information
-- Search tweets by hashtags or keywords
-- Filter search results by latest/top
-- Rate limiting (max 50 tweets per request)
+### 基本的な読み取り
+- メディア対応でユーザーのツイート取得
+- 詳細情報付きのユーザープロフィール取得
+- ハッシュタグまたはキーワードによるツイート検索
+- 検索結果の最新／トップ順フィルター
+- レート制限（1回のリクエストで最大50ツイート）
 
-### User Interactions
-- Like/Unlike tweets
-- Retweet/Undo retweet
-- Post tweets with:
-  - Text content
-  - Media attachments (images, videos)
-  - Reply functionality
-  - Quote tweet capability
+### ユーザーとのやり取り
+- ツイートの「いいね」／「いいね解除」
+- リツイート／リツイート取消
+- ツイート投稿（以下を含む）:
+  - テキストコンテンツ
+  - メディア添付（画像、動画）
+  - リプライ機能
+  - 引用ツイート機能
 
-### Advanced Features
-- Get user relationships (followers/following)
-- Fetch trending topics
-- Access different timeline types:
-  - Home timeline
-  - Following timeline
-  - User timeline
-- List management (fetch list tweets)
+### 高度な機能
+- ユーザー関係（フォロワー／フォロー中）取得
+- トレンドトピック取得
+- 各種タイムラインの取得:
+  - ホームタイムライン
+  - フォロー中のタイムライン
+  - ユーザータイムライン
+- リスト管理（リスト内ツイート取得）
 
-### Media & Advanced Interactions
-- Media handling:
-  - Image upload (JPEG, PNG, GIF)
-  - Video upload (MP4)
-  - Alt text support
-- Thread creation
-- Follow/Unfollow users
+### メディアと高度な操作
+- メディア処理:
+  - 画像アップロード（JPEG, PNG, GIF）
+  - 動画アップロード（MP4）
+  - 代替テキスト対応
+- スレッド作成
+- ユーザーのフォロー／フォロー解除
 
-## Tools
+## ツール一覧
 
-### Reading Tools
-- `get_tweets` - Fetch recent tweets from a user
-- `get_profile` - Get a user's profile information
-- `search_tweets` - Search for tweets by hashtag or keyword
+### 読み取りツール
+- `get_tweets` - 特定ユーザーの最近のツイートを取得
+- `get_profile` - ユーザープロフィール情報の取得
+- `search_tweets` - ハッシュタグまたはキーワードでツイート検索
 
-### Interaction Tools
-- `like_tweet` - Like or unlike a tweet
-- `retweet` - Retweet or undo retweet
-- `post_tweet` - Post a new tweet with optional media
-- `create_thread` - Create a Twitter thread
+### インタラクションツール
+- `like_tweet` - ツイートに「いいね」または「いいね解除」
+- `retweet` - リツイートまたはリツイート取消
+- `post_tweet` - メディアオプション付きで新しいツイート投稿
+- `create_thread` - スレッド作成
 
-### Timeline Tools
-- `get_timeline` - Get tweets from different timeline types
-- `get_list_tweets` - Get tweets from a Twitter list
-- `get_trends` - Get current trending topics
+### タイムラインツール
+- `get_timeline` - 各種タイムラインからツイート取得
+- `get_list_tweets` - Twitterリストからのツイート取得
+- `get_trends` - 現在のトレンドトピック取得
 
-### User Management Tools
-- `get_user_relationships` - Get followers or following list
-- `follow_user` - Follow or unfollow a user
+### ユーザー管理ツール
+- `get_user_relationships` - フォロワーまたはフォロー中リスト取得
+- `follow_user` - ユーザーのフォロー／フォロー解除
 
-## Installation
+## インストール
 
-1. Install dependencies:
+1. 依存関係のインストール:
 ```bash
 npm install
 ```
 
-2. Build the server:
+2. サーバーのビルド:
 ```bash
 npm run build
 ```
 
-3. Configure environment variables:
+3. 環境変数の設定:
 ```bash
 # Required: Twitter Account Credentials (for user authentication)
 TWITTER_USERNAME=your_username
@@ -89,19 +89,19 @@ TWITTER_ACCESS_TOKEN=your_access_token
 TWITTER_ACCESS_TOKEN_SECRET=your_access_token_secret
 ```
 
-4. Add the server config to your MCP client:
+4. MCPクライアントにサーバー設定を追加:
 
-On MacOS:
+MacOSの場合:
 ```bash
 ~/Library/Application Support/Claude/claude_desktop_config.json
 ```
 
-On Windows:
+Windowsの場合:
 ```bash
 %APPDATA%/Claude/claude_desktop_config.json
 ```
 
-Configuration:
+設定内容:
 ```json
 {
   "mcpServers": {
@@ -114,45 +114,45 @@ Configuration:
 
 ## Development
 
-For development with auto-rebuild:
+開発用：自動リビルド付き
 ```bash
 npm run watch
 ```
 
-### Debugging
+### デバッグ
 
-Since MCP servers communicate over stdio, you can use the MCP Inspector for debugging:
+MCPサーバーはstdioで通信するため、MCP Inspectorを使ってデバッグ可能です:
 ```bash
 npm run inspector
 ```
 
-The Inspector will provide a URL to access debugging tools in your browser.
+Inspectorはブラウザでアクセス可能なURLを提供します。
 
-## Error Handling
+## エラー処理
 
-The server implements comprehensive error handling:
-- Input validation for all parameters
-- Rate limiting protection
-- Detailed error messages
-- Proper error propagation
-- Logging for debugging
+サーバーは包括的なエラー処理を実装しています:
+- すべてのパラメータに対する入力検証
+- レート制限保護
+- 詳細なエラーメッセージ
+- 適切なエラー伝播
+- デバッグ用のログ出力
 
-## Response Format
+## レスポンス形式
 
-All tools return responses in a consistent format:
+すべてのツールは一貫した形式でレスポンスを返します:
 ```typescript
 {
   content: [{
     type: "text",
-    text: string // JSON stringified response or error message
+    text: string // JSON形式で文字列化されたレスポンスまたはエラーメッセージ
   }]
 }
 ```
 
-## Contributing
+## コントリビューション
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+貢献は大歓迎です！Pull Requestの提出をお待ちしています。
 
-## License
+## ライセンス
 
-MIT License - see LICENSE file for details
+MITライセンス - 詳細は LICENSE ファイルを参照してください
