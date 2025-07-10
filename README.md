@@ -112,6 +112,28 @@ Windowsの場合:
 }
 ```
 
+## GeminiCLIの設定
+
+GeminiCLIを使用する場合は、`.gemini/settings.json`に以下の設定を追加してください：
+
+```json
+{
+  "mcpServers": {
+    "twitter-mcp-server": {
+      "command": "node C:\\path\\to\\twitter-mcp-server\\build\\index.js",
+      "env": {
+        "TWITTER_USERNAME": "ユーザ名",
+        "TWITTER_PASSWORD": "パスワード",
+        "TWITTER_EMAIL": "メールアドレス"
+      }
+    }
+  }
+}
+```
+
+`command`のパスは、実際のTwitter MCP Serverのインストール場所に合わせて変更してください。
+また、`env`セクションには実際のTwitterアカウントの認証情報を設定してください。
+
 ## Development
 
 開発用：自動リビルド付き
